@@ -14,9 +14,13 @@ public class CalculadoraNota {
         return a1 + a2 + a3;
     }
 
-    public boolean estaAprovadoPorNota(double notaFinal) {
-        return notaFinal >= NOTA_MINIMA_APROVACAO;
-    }
+   
+public boolean estaAprovadoPorNota(double notaFinal) {
+    return notaFinal >= NOTA_MINIMA_APROVACAO;
+}
+
+public static final double FREQUENCIA_MINIMA = 75;
+
 
     private void validarNota(double nota, double notaMaxima, String nomeAvaliacao) {
 
@@ -25,4 +29,14 @@ public class CalculadoraNota {
                 nomeAvaliacao + " deve estar entre 0 e " + notaMaxima);
         }
     }
+
+public String situacao(double notaFinal, double frequencia) {
+    if (estaAprovadoPorNota(notaFinal)
+            && frequencia >= FREQUENCIA_MINIMA) {
+        return "APROVADO";
+    }
+
+    return "REPROVADO";
+}
+
 }
